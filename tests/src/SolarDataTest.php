@@ -253,7 +253,7 @@ class SolarDataTest extends \PHPUnit_Framework_TestCase {
 			,1 / 1e5
 		);
 	}
-
+	/*
 	public function dataProviderSUN_rise_transit_set() {
 		
 		$sun_data = [];
@@ -280,10 +280,12 @@ class SolarDataTest extends \PHPUnit_Framework_TestCase {
 
 		return $sun_data;
 	}
-
+	*/
+	
 	/**
 	 * @dataProvider dataProviderSUN_rise_transit_set
 	 */
+	/*
 	public function testDataTestSunInfoPHP($datatime,$sundata) {
 
 		$Date = new \DateTime();
@@ -339,6 +341,6 @@ class SolarDataTest extends \PHPUnit_Framework_TestCase {
 		$chunk = explode(':',$timeHMS);
 		return $chunk[0].":".$chunk[1];
 	}
-	
+	*/
 	//getSunRiseTransitSet
 }

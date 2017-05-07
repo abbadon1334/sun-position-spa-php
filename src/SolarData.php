@@ -129,6 +129,9 @@ class SolarData
 		$this->Observer->setAtmosphericTemperature($Temperature);
 	}
 	
+	/*
+	 * @return SunPosition
+	 */
 	public function calculate()
 	{
 		$this->Observer->calculate();
@@ -136,10 +139,13 @@ class SolarData
 		$this->SunPosition->DEBUG = $this->DEBUG;
 		$this->SunPosition->setObserver($this->Observer);
 		$this->SunPosition->calculate();
+		return $this->SunPosition;
 	}
 	
-	public function calculateSunRiseTransitSet() {
+	public function calculateSunRiseTransitSet($recalculate=false) {
+		if($recalculate) $this->calculate();
 		$this->SunPosition->calcSunRiseTransitSet();
+		return $this->SunPosition;
 	}
 	
 	public function getEquationOfTime() {

@@ -469,6 +469,8 @@ class SunPosition
 		$this->ξ° = $ξ°;
 		$this->Z° = $Z°;
 		$this->Δα° = $Δα°;
+
+		$this->Eot = $this->getEquationOfTime();
 	}
 	
 	# A.1. Equation of Time
@@ -485,7 +487,7 @@ class SunPosition
 		$Eot = $E° * 4;
 		if ($Eot < -20.0) $Eot += 1440.0;
 		else if ($Eot > 20.0) $Eot -= 1440.0;
-		
+
 		return $Eot;
 	}
 	

@@ -14,6 +14,7 @@ the year -2000 to 6000, with uncertainties of ±0.0003°
 
 ### PHPUNIT TEST
 Library test data vs Table A.4 of the original study
+PHPUNIT TEST PHP 5.6 - 7.0 (https://travis-ci.org/Abbadon1334/Sun-Position-SPA-php.svg?branch=master)
 
 ### C Source code for Solar Position Algorithm (SPA) 
 http://www.nrel.gov/midc/spa/

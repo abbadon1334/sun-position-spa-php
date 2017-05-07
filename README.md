@@ -24,6 +24,11 @@ http://www.nrel.gov/midc/spa/
  - PHP 5.6
  - PHP 7
 
+### Composer install
+```
+composer require abbadon1334/sun-position-spa-php
+```
+
 ### Simple Usage
 ```
 $SD = new SolarData\SolarData();

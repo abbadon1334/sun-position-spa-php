@@ -53,37 +53,36 @@ $SunPosition = $SD->calculate();
 ```
 #### Available attributes after calculate() :
 
-* I know this attributes names are not so ortodox. *
-* The study is really complex and using the same name for variables is a big aid for debugging *
+*I know this attributes names are not so ortodox.*
+*Formulas that are present in the original document are really complex and using the same name for variables is a big aid for debugging*
 
-	* `L°` Earth heliocentric longitude (degrees)
-	* `B°` Earth heliocentric latitude (degrees)
-	* `R` Earth radius vector, R (in Astronomical Units, AU)
-	* `Θ°` geocentric longitude (degrees)
-	* `β°` geocentric longitude (degrees)
-	* `X` nutation in longitude and obliquity
-	* `ε°` true obliquity of the ecliptic (degrees)
-	* `Δτ` aberration correction (degrees)
-	* `λ°` apparent sun longitude (degrees)
-	* `ν°` apparent sidereal time at Greenwich (degrees)
-	* `ν0°` apparent mean sidereal time at Greenwich (degrees)
-	* `α°` geocentric sun right ascension (degrees)
-	* `α´°` topocentric sun right ascension (degrees)
-	* `δ°` geocentric sun declination (degrees)
-	* `δ´°` topocentric sun declination (degrees)
-	* `H°` Observer hour angle (degrees)
-	* `H´°` topocentric hour angle (degrees)
-	* `ξ°` equatorial horizontal parallax of the sun (degrees)
-	* `Z°` topocentric zenith angle (degrees)
-	* `Γ°` topocentric astronomers azimuth angle (degrees)
-	* `Φ°` topocentric azimuth angle, M for navigators and solar radiation users (in degrees)
-	* `e0°` topocentric elevation angle without atmospheric refraction (in degrees)
-	* `e°` topocentric elevation angle (in degrees)
-	* `Eot` Equation Of Time
+* `L°` Earth heliocentric longitude (degrees)
+* `B°` Earth heliocentric latitude (degrees)
+* `R` Earth radius vector, R (in Astronomical Units, AU)
+* `Θ°` geocentric longitude (degrees)
+* `β°` geocentric longitude (degrees)
+* `X` nutation in longitude and obliquity
+* `ε°` true obliquity of the ecliptic (degrees)
+* `Δτ` aberration correction (degrees)
+* `λ°` apparent sun longitude (degrees)
+* `ν°` apparent sidereal time at Greenwich (degrees)
+* `ν0°` apparent mean sidereal time at Greenwich (degrees)
+* `α°` geocentric sun right ascension (degrees)
+* `α´°` topocentric sun right ascension (degrees)
+* `δ°` geocentric sun declination (degrees)
+* `δ´°` topocentric sun declination (degrees)
+* `H°` Observer hour angle (degrees)
+* `H´°` topocentric hour angle (degrees)
+* `ξ°` equatorial horizontal parallax of the sun (degrees)
+* `Z°` topocentric zenith angle (degrees)
+* `Γ°` topocentric astronomers azimuth angle (degrees)
+* `Φ°` topocentric azimuth angle, M for navigators and solar radiation users (in degrees)
+* `e0°` topocentric elevation angle without atmospheric refraction (in degrees)
+* `e°` topocentric elevation angle (in degrees)
+* `Eot` Equation Of Time
 
-*Example to get an Agle*
+*Example to get angle H° - Observer hour angle (degrees)*
 ```
-
 $SD = new SolarData\SolarData();
 
 /* ARGS : observer latitude, observer longitude, observer altitude */

@@ -422,10 +422,13 @@ class SunPosition
         $T = $this->ObsTemperature;
         $Δe° = ($P / 1010.0);
         $Δe° *= (283.0 / (273.0 + $T));
-        $Δe° *= (1.02 / (60.0 * tan(
+        $Δe° *= (
+            1.02 / (
+            60.0 * tan(
                 // e0° is in degrees. Calculate the tangent argument in degrees,
                 // then convert to radians if required by calculator or computer.
-                    $this->_toRadians($e0° + 10.3 / ($e0° + 5.11)))
+                    $this->_toRadians($e0° + 10.3 / ($e0° + 5.11))
+        )
             )
         );
 
@@ -733,7 +736,7 @@ class SunPosition
     {
         $minutes = 60.0 * ($hours - (int) $hours);
         $seconds = 60.0 * ($minutes - (int) $minutes);
-        if (!$withMillisec) {
+        if (! $withMillisec) {
             $seconds = (int) $seconds;
         }
 
@@ -765,7 +768,7 @@ class SunPosition
     // Earth Heliocentric Longitude
     private function _calculateEarthHeliocentricLongitude($JME)
     {
-        $EHL = $this->_calculateEarthTerms($JME, self::EarthPeriodicTerms_L);
+        $EHL = $this->_calculateEarthTerms($JME, self::EARTH_PERIODIC_TERMS_L);
         if ($this->DEBUG) {
             $this->TEST_UNIT_L = $EHL;
         }
@@ -780,7 +783,7 @@ class SunPosition
     // Earth Heliocentric Latitude
     private function _calculateEarthHeliocentricLatitude($JME)
     {
-        $EHB = $this->_calculateEarthTerms($JME, self::EarthPeriodicTerms_B);
+        $EHB = $this->_calculateEarthTerms($JME, self::EARTH_PERIODIC_TERMS_B);
         if ($this->DEBUG) {
             $this->TEST_UNIT_B = $EHB;
         }
@@ -794,7 +797,7 @@ class SunPosition
 
     private function _calculateEarthRadiusVector($JME)
     {
-        $R = $this->_calculateEarthTerms($JME, self::EarthPeriodicTerms_R);
+        $R = $this->_calculateEarthTerms($JME, self::EARTH_PERIODIC_TERMS_R);
         if ($this->DEBUG) {
             $this->TEST_UNIT_R = $R;
         }
@@ -956,7 +959,7 @@ class SunPosition
     /* Table A4.2. Earth Periodic Terms */
     // Earth longitude calculation
 
-    const EarthPeriodicTerms_L = [
+    const EARTH_PERIODIC_TERMS_L = [
 //L0
         [
             [175347046.0, 0, 0],
@@ -1107,7 +1110,7 @@ class SunPosition
     ];
 
     // earth heliocentric latitude.
-    const EarthPeriodicTerms_B = [
+    const EARTH_PERIODIC_TERMS_B = [
 //B0
         [
             [280.0, 3.199, 84334.662],
@@ -1124,7 +1127,7 @@ class SunPosition
     ];
 
     // earth radius vector.
-    const EarthPeriodicTerms_R = [
+    const EARTH_PERIODIC_TERMS_R = [
 //R0
         [
             [100013989.0, 0, 0],

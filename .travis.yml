@@ -1,18 +1,23 @@
 language: php
 
 php:
-  - 5.6
-  - 7.0
-  - 7.1
   - 7.2
   - 7.3
 
 before_script:
-  - composer self-update
-  - composer install --prefer-source --dev
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install -n
+  - composer require satooshi/php-coveralls:~1.0@stable # Require phpCoveralls
+  - mkdir -p coverage/xml # Create a folder to store clover files #1
+  - mkdir -p build/logs # Create a folder to store clover files #2
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
-  - phpunit
+  - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
-notifications:
-  email: false
+after_script:
+  - php vendor/bin/codacycoverage clover build/logs/clover.xml
+  - sh -c 'if( [ "$TRAVIS_PHP_VERSION" != "hhvm" ] ); then php vendor/bin/coveralls -v; fi;'
+  - ./cc-test-reporter after-build --coverage-input-type clover --exit-code $TRAVIS_TEST_RESULT

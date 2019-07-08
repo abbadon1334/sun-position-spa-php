@@ -1,0 +1,16 @@
+{
+    "extensions": [
+        "php"
+    ],
+    "exclude": [
+        "demos",
+        "infra",
+        "tests",
+        "composer",
+        "vendor",
+        "generated"
+    ],
+    "report-xml": "./build/report/phpmetrics.xml",
+    "report-html": "./build/report/phpmetrics.html",
+    "report-csv": "./build/report/phpmetrics.csv"
+}

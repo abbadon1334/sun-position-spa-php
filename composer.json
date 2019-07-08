@@ -12,7 +12,7 @@
     "require": {
     },
     "require-dev": {
-        "kint-php/kint": "^2.0",
+        "kint-php/kint": "2.2.0",
         "phpunit/phpunit": "3.7.14"
     },
     "autoload": {

@@ -736,7 +736,7 @@ class SunPosition
     {
         $minutes = 60.0 * ($hours - (int) $hours);
         $seconds = 60.0 * ($minutes - (int) $minutes);
-        if (!$withMillisec) {
+        if (! $withMillisec) {
             $seconds = (int) $seconds;
         }
 

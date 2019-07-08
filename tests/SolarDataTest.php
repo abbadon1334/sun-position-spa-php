@@ -159,7 +159,7 @@ class SolarDataTest extends TestCase
     public function testA5_Example_Test_L()
     {
         $this->prepareTestCase();
-        $this->assertEqualsWithDelta(24.0182616917, $this->mock->SunPosition->L°,  1 / 1e10);
+        $this->assertEqualsWithDelta(24.0182616917, $this->mock->SunPosition->L°, 1 / 1e10);
     }
 
     public function testA5_Example_Test_ArrayB()
@@ -168,19 +168,19 @@ class SolarDataTest extends TestCase
         $this->assertEqualsWithDelta([
             -176.502688,
             3.067582,
-        ], $this->mock->SunPosition->TEST_UNIT_B,  1 / 1e6);
+        ], $this->mock->SunPosition->TEST_UNIT_B, 1 / 1e6);
     }
 
     public function testA5_Example_Test_B()
     {
         $this->prepareTestCase();
-        $this->assertEqualsWithDelta(-0.0001011219, $this->mock->SunPosition->B°,  1 / 1e10);
+        $this->assertEqualsWithDelta(-0.0001011219, $this->mock->SunPosition->B°, 1 / 1e10);
     }
 
     public function testA5_Example_Test_R()
     {
         $this->prepareTestCase();
-        $this->assertEqualsWithDelta(0.9965422974, $this->mock->SunPosition->R,  1 / 1e10);
+        $this->assertEqualsWithDelta(0.9965422974, $this->mock->SunPosition->R, 1 / 1e10);
     }
 
     public function testA5_Example_Test_ArrayR()
@@ -236,14 +236,14 @@ class SolarDataTest extends TestCase
     public function testEquationOfTime()
     {
         $this->prepareTestCase();
-        $this->assertEqualsWithDelta(14.641503, $this->mock->getEquationOfTime(),  1 / 1e4);
+        $this->assertEqualsWithDelta(14.641503, $this->mock->getEquationOfTime(), 1 / 1e4);
     }
 
     public function testSunMeanLongitude()
     {
         $this->prepareTestCase();
         $this->assertEqualsWithDelta(
-            205.8971722516, $this->mock->SunPosition->getSunMeanLongitude(),  1 / 1e10
+            205.8971722516, $this->mock->SunPosition->getSunMeanLongitude(), 1 / 1e10
         );
     }
 
@@ -255,25 +255,24 @@ class SolarDataTest extends TestCase
         );
     }
 
-    public function dataProviderSUN_rise_transit_set() {
-
+    public function dataProviderSUN_rise_transit_set()
+    {
         $sun_data = [];
 
-        for($a=0;$a<600;$a++) {
-
-            $randomDate = rand(-81101347200,64060588800);
+        for ($a = 0; $a < 600; $a++) {
+            $randomDate = rand(-81101347200, 64060588800);
 
             $Date = new \DateTime();
             $Date->setTimestamp($randomDate);
 
-            $sun_info = date_sun_info($randomDate,31.7667, 35.2333);
+            $sun_info = date_sun_info($randomDate, 31.7667, 35.2333);
 
-            $tmp 	= [] ;
-            $tmp[] 	= $randomDate;
-            $tmp[] 	= [
+            $tmp = [];
+            $tmp[] = $randomDate;
+            $tmp[] = [
             'sunrise' 	=> $sun_info['sunrise'],
             'transit' 	=> $sun_info['transit'],
-            'sunset' 	=> $sun_info['sunset']
+            'sunset' 	 => $sun_info['sunset'],
             ];
 
             $sun_data[] = $tmp;
@@ -285,26 +284,26 @@ class SolarDataTest extends TestCase
     /**
      * @dataProvider dataProviderSUN_rise_transit_set
      */
-    public function testDataTestSunInfoPHP($datatime,$sundata) {
-
+    public function testDataTestSunInfoPHP($datatime, $sundata)
+    {
         $Date = new \DateTime();
         $Date->setTimestamp($datatime);
 
-        $this->mock->setObserverPosition(31.7667, 35.2333,0);
+        $this->mock->setObserverPosition(31.7667, 35.2333, 0);
 
         $this->mock->setObserverDate($Date->format('Y'), $Date->format('m'), $Date->format('d'));
 
-        $this->mock->setObserverTime(12, 30,30);
+        $this->mock->setObserverTime(12, 30, 30);
 
         $this->mock->calculate();
         $this->mock->calculateSunRiseTransitSet();
 
-        $Date->setTime(0,0,0);
+        $Date->setTime(0, 0, 0);
         $HourZeroDate = $Date->getTimestamp();
 
-        $sunrise = date("H:i", $sundata['sunrise']);
-        $transit = date("H:i", $sundata['transit']);
-        $sunset  = date("H:i", $sundata['sunset']);
+        $sunrise = date('H:i', $sundata['sunrise']);
+        $transit = date('H:i', $sundata['transit']);
+        $sunset = date('H:i', $sundata['sunset']);
 
         $SPA_HM_sunrise = $this->getTestHMfromHMS($this->mock->SunPosition->_DayFracToTime($this->mock->SunPosition->DayFractionSunrise));
         $SPA_HM_transit = $this->getTestHMfromHMS($this->mock->SunPosition->_DayFracToTime($this->mock->SunPosition->DayFractionTransit));
@@ -316,27 +315,29 @@ class SolarDataTest extends TestCase
 
         $ZTSunrise = ($sundata['sunrise'] - $HourZeroDate);
         $ZTTransit = ($sundata['transit'] - $HourZeroDate);
-        $ZTSunset  = ($sundata['sunset'] - $HourZeroDate);
+        $ZTSunset = ($sundata['sunset'] - $HourZeroDate);
 
         $this->assertEqualsWithDelta([
                 abs($ZTSunrise - $ZTSunrise_check),
                 abs($ZTTransit - $ZTTransit_check),
                 abs($ZTSunset - $ZTSunset_check),
-            ],[
+            ], [
                 0,
                 0,
-                0
+                0,
             ],
             15 * 60 // Maximum error +/- 15 Minutes
-            ,' For date : ' . $Date->format('Y-m-d') . PHP_EOL
-                . date("H:i", $ZTSunrise) . ' is out of tollerance error respect ' . date("H:i", $ZTSunrise_check) . PHP_EOL
-                . date("H:i", $ZTTransit) . ' is out of tollerance error respect ' . date("H:i", $ZTTransit_check) . PHP_EOL
-                . date("H:i", $ZTSunset) . ' is out of tollerance error respect ' . date("H:i", $ZTSunset_check) . PHP_EOL
+            , ' For date : '.$Date->format('Y-m-d').PHP_EOL
+                .date('H:i', $ZTSunrise).' is out of tollerance error respect '.date('H:i', $ZTSunrise_check).PHP_EOL
+                .date('H:i', $ZTTransit).' is out of tollerance error respect '.date('H:i', $ZTTransit_check).PHP_EOL
+                .date('H:i', $ZTSunset).' is out of tollerance error respect '.date('H:i', $ZTSunset_check).PHP_EOL
             );
     }
 
-    private function getTestHMfromHMS($timeHMS) {
-        $chunk = explode(':',$timeHMS);
-        return $chunk[0].":".$chunk[1];
+    private function getTestHMfromHMS($timeHMS)
+    {
+        $chunk = explode(':', $timeHMS);
+
+        return $chunk[0].':'.$chunk[1];
     }
 }

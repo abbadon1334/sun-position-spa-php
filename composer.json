@@ -13,7 +13,7 @@
     },
     "require-dev": {
         "kint-php/kint": "2.2.0",
-        "phpunit/phpunit": "3.7.14"
+        "phpunit/phpunit": "8.2.4"
     },
     "autoload": {
         "psr-4": {

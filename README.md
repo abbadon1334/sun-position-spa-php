@@ -1,7 +1,8 @@
 # Sun-Position-SPA-php
 SPA Sun Position Calc Library for PHP
 
-PHPUNIT TEST PHP 5.6 - 7.0  ![Alt text](https://travis-ci.org/abbadon1334/sun-position-spa-php.svg?branch=master)
+[![Build Status](https://travis-ci.org/abbadon1334/sun-position-spa-php.svg?branch=master)](https://travis-ci.org/abbadon1334/sun-position-spa-php)
+[![Coverage Status](https://coveralls.io/repos/github/abbadon1334/sun-position-spa-php/badge.svg?branch=upgrade-to-unit-8)](https://coveralls.io/github/abbadon1334/sun-position-spa-php?branch=upgrade-to-unit-8)
 
 This library is based on the work of Ibrahim Reda and Afshin Andreas
 (SPA) Solar Position Algorithm for Solar Radiation Applications ( 2008 National Renewable Energy Laboratory )

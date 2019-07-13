@@ -5,7 +5,8 @@ SPA Sun Position Calc Library for PHP
 [![Coverage Status](https://coveralls.io/repos/github/abbadon1334/sun-position-spa-php/badge.svg?branch=upgrade-to-unit-8)](https://coveralls.io/github/abbadon1334/sun-position-spa-php?branch=upgrade-to-unit-8)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fe0c85053b434e296254/maintainability)](https://codeclimate.com/github/abbadon1334/sun-position-spa-php/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/fe0c85053b434e296254/test_coverage)](https://codeclimate.com/github/abbadon1334/sun-position-spa-php/test_coverage)
-[Alt text](https://travis-ci.org/abbadon1334/sun-position-spa-php.svg?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3898544085a45b097a08cf01bff3131)](https://www.codacy.com/app/abbadon1334/sun-position-spa-php?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abbadon1334/sun-position-spa-php&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a3898544085a45b097a08cf01bff3131)](https://www.codacy.com/app/abbadon1334/sun-position-spa-php?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abbadon1334/sun-position-spa-php&amp;utm_campaign=Badge_Coverage)
 
 This library is based on the work of Ibrahim Reda and Afshin Andreas
 (SPA) Solar Position Algorithm for Solar Radiation Applications ( 2008 National Renewable Energy Laboratory )

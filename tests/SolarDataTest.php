@@ -19,7 +19,7 @@ class SolarDataTest extends TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->mock = new SolarData();
         $this->mock->setDebug(true);
@@ -35,14 +35,14 @@ class SolarDataTest extends TestCase
         $this->mock->setObserverPosition(31, -7, 400);
         $this->assertSame(
                 [
-            (float) 31,
-            (float) -7,
-            (float) 400,
+                    (float) 31,
+                    (float) -7,
+                    (float) 400,
                 ], [
-            $this->mock->getObserver()->ObserverPosition->latitude,
-            $this->mock->getObserver()->ObserverPosition->longitude,
-            $this->mock->getObserver()->ObserverPosition->altitude,
-        ]);
+                    $this->mock->getObserver()->ObserverPosition->latitude,
+                    $this->mock->getObserver()->ObserverPosition->longitude,
+                    $this->mock->getObserver()->ObserverPosition->altitude,
+                ]);
     }
 
     /**
@@ -55,14 +55,14 @@ class SolarDataTest extends TestCase
         $this->mock->setObserverDate(2000, 1, 1);
         $this->assertSame(
                 [
-            (float) 2000,
-            (float) 1,
-            (float) 1,
+                    (float) 2000,
+                    (float) 1,
+                    (float) 1,
                 ], [
-            $this->mock->getObserver()->ObserverTime->Year,
-            $this->mock->getObserver()->ObserverTime->Month,
-            $this->mock->getObserver()->ObserverTime->Day,
-        ]);
+                    $this->mock->getObserver()->ObserverTime->Year,
+                    $this->mock->getObserver()->ObserverTime->Month,
+                    $this->mock->getObserver()->ObserverTime->Day,
+                ]);
     }
 
     /**
@@ -75,14 +75,14 @@ class SolarDataTest extends TestCase
         $this->mock->setObserverTime(12, 0);
         $this->assertSame(
                 [
-            (float) 12,
-            (float) 0,
-            (float) 0,
+                    (float) 12,
+                    (float) 0,
+                    (float) 0,
                 ], [
-            $this->mock->getObserver()->ObserverTime->Hour,
-            $this->mock->getObserver()->ObserverTime->Minute,
-            $this->mock->getObserver()->ObserverTime->Second,
-        ]);
+                    $this->mock->getObserver()->ObserverTime->Hour,
+                    $this->mock->getObserver()->ObserverTime->Minute,
+                    $this->mock->getObserver()->ObserverTime->Second,
+                ]);
     }
 
     public function dataProviderTableA4_julianDay()
@@ -270,9 +270,9 @@ class SolarDataTest extends TestCase
             $tmp = [];
             $tmp[] = $randomDate;
             $tmp[] = [
-            'sunrise' 	=> $sun_info['sunrise'],
-            'transit' 	=> $sun_info['transit'],
-            'sunset' 	 => $sun_info['sunset'],
+                'sunrise' 	=> $sun_info['sunrise'],
+                'transit' 	=> $sun_info['transit'],
+                'sunset' 	 => $sun_info['sunset'],
             ];
 
             $sun_data[] = $tmp;
@@ -318,14 +318,14 @@ class SolarDataTest extends TestCase
         $ZTSunset = ($sundata['sunset'] - $HourZeroDate);
 
         $this->assertEqualsWithDelta([
-                abs($ZTSunrise - $ZTSunrise_check),
-                abs($ZTTransit - $ZTTransit_check),
-                abs($ZTSunset - $ZTSunset_check),
-            ], [
-                0,
-                0,
-                0,
-            ],
+            abs($ZTSunrise - $ZTSunrise_check),
+            abs($ZTTransit - $ZTTransit_check),
+            abs($ZTSunset - $ZTSunset_check),
+        ], [
+            0,
+            0,
+            0,
+        ],
             15 * 60 // Maximum error +/- 15 Minutes
             , ' For date : '.$Date->format('Y-m-d').PHP_EOL
                 .date('H:i', $ZTSunrise).' is out of tollerance error respect '.date('H:i', $ZTSunrise_check).PHP_EOL

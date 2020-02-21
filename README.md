@@ -26,8 +26,9 @@ Library test data vs Table A.4 of the original study
 http://www.nrel.gov/midc/spa/
 
 ### Requirements
- - PHP 5.6
- - PHP 7
+ - PHP 7.2
+ - PHP 7.3
+ - PHP 7.4
 
 ### Composer install
 ```

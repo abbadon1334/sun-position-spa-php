@@ -7,7 +7,7 @@ php:
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install -n
-  - composer require satooshi/php-coveralls:~1.0@stable # Require phpCoveralls
+  - composer require satooshi/php-coveralls # Require phpCoveralls
   - mkdir -p coverage/xml # Create a folder to store clover files #1
   - mkdir -p build/logs # Create a folder to store clover files #2
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

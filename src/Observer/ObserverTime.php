@@ -18,7 +18,7 @@ class ObserverTime
      * ΔT is the difference between the Earth rotation time and the Terrestrial Time (TT).
      * It is derived from observation only and reported yearly in the Astronomical Almanac.
      *
-     * @param float $ΔT
+     * @param  float  $ΔT
      */
     public $ΔT = 0;
     public $JulianEphemerisDay = 0;

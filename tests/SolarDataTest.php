@@ -34,15 +34,15 @@ class SolarDataTest extends TestCase
     {
         $this->mock->setObserverPosition(31, -7, 400);
         $this->assertSame(
-                [
-                    (float) 31,
-                    (float) -7,
-                    (float) 400,
-                ], [
-                    $this->mock->getObserver()->ObserverPosition->latitude,
-                    $this->mock->getObserver()->ObserverPosition->longitude,
-                    $this->mock->getObserver()->ObserverPosition->altitude,
-                ]);
+            [
+                (float) 31,
+                (float) -7,
+                (float) 400,
+            ], [
+                $this->mock->getObserver()->ObserverPosition->latitude,
+                $this->mock->getObserver()->ObserverPosition->longitude,
+                $this->mock->getObserver()->ObserverPosition->altitude,
+            ]);
     }
 
     /**
@@ -54,15 +54,15 @@ class SolarDataTest extends TestCase
     {
         $this->mock->setObserverDate(2000, 1, 1);
         $this->assertSame(
-                [
-                    (float) 2000,
-                    (float) 1,
-                    (float) 1,
-                ], [
-                    $this->mock->getObserver()->ObserverTime->Year,
-                    $this->mock->getObserver()->ObserverTime->Month,
-                    $this->mock->getObserver()->ObserverTime->Day,
-                ]);
+            [
+                (float) 2000,
+                (float) 1,
+                (float) 1,
+            ], [
+                $this->mock->getObserver()->ObserverTime->Year,
+                $this->mock->getObserver()->ObserverTime->Month,
+                $this->mock->getObserver()->ObserverTime->Day,
+            ]);
     }
 
     /**
@@ -74,15 +74,15 @@ class SolarDataTest extends TestCase
     {
         $this->mock->setObserverTime(12, 0);
         $this->assertSame(
-                [
-                    (float) 12,
-                    (float) 0,
-                    (float) 0,
-                ], [
-                    $this->mock->getObserver()->ObserverTime->Hour,
-                    $this->mock->getObserver()->ObserverTime->Minute,
-                    $this->mock->getObserver()->ObserverTime->Second,
-                ]);
+            [
+                (float) 12,
+                (float) 0,
+                (float) 0,
+            ], [
+                $this->mock->getObserver()->ObserverTime->Hour,
+                $this->mock->getObserver()->ObserverTime->Minute,
+                $this->mock->getObserver()->ObserverTime->Second,
+            ]);
     }
 
     public function dataProviderTableA4_julianDay()
@@ -331,7 +331,7 @@ class SolarDataTest extends TestCase
                 .date('H:i', $ZTSunrise).' is out of tollerance error respect '.date('H:i', $ZTSunrise_check).PHP_EOL
                 .date('H:i', $ZTTransit).' is out of tollerance error respect '.date('H:i', $ZTTransit_check).PHP_EOL
                 .date('H:i', $ZTSunset).' is out of tollerance error respect '.date('H:i', $ZTSunset_check).PHP_EOL
-            );
+        );
     }
 
     private function getTestHMfromHMS($timeHMS)

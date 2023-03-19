@@ -424,11 +424,11 @@ class SunPosition
         $Δe° *= (283.0 / (273.0 + $T));
         $Δe° *= (
             1.02 / (
-            60.0 * tan(
-                // e0° is in degrees. Calculate the tangent argument in degrees,
-                // then convert to radians if required by calculator or computer.
+                60.0 * tan(
+                    // e0° is in degrees. Calculate the tangent argument in degrees,
+                    // then convert to radians if required by calculator or computer.
                     $this->_toRadians($e0° + 10.3 / ($e0° + 5.11))
-        )
+                )
             )
         );
 

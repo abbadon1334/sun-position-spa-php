@@ -18,7 +18,7 @@ class ObserverTime
      * ΔT is the difference between the Earth rotation time and the Terrestrial Time (TT).
      * It is derived from observation only and reported yearly in the Astronomical Almanac.
      *
-     * @param float $ΔT
+     * @param  float  $ΔT
      */
     public $ΔT = 0;
     public $JulianEphemerisDay = 0;
@@ -27,8 +27,7 @@ class ObserverTime
 
     private function calcJulianDay()
     {
-
-// is the month of the year (e.g. 1 for January, ..etc.).
+        // is the month of the year (e.g. 1 for January, ..etc.).
         // !!! Note that if M > 2, then Y and M are not changed
         // !!! ,but if M = 1 or 2, then Y = Y -1 and M = M + 12.
 

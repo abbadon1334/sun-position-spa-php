@@ -130,6 +130,13 @@ class SunPosition
     public $α° = 0;
 
     /**
+     * topocentric right-ascension correction (degrees).
+     *
+     * @var float
+     */
+    public $Δα° = 0;
+
+    /**
      * topocentric sun right ascension (degrees).
      *
      * @var float
@@ -204,6 +211,13 @@ class SunPosition
      * @var float
      */
     public $e° = 0;
+
+    /**
+     * atmospheric refraction correction to elevation (degrees).
+     *
+     * @var float
+     */
+    public $Δe° = 0;
 
     /**
      * Observer Altitude.
